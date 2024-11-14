@@ -1,13 +1,17 @@
-function formatMessage(message, maxLength) {
-    return message.length > maxLength
-        ? message.substring(0, maxLength) + "..."
-        : message;
-}
+function makeArray(firstArray, secondArray, maxLength) {
+    let newArray = firstArray.concat(secondArray)
+    if (newArray.length <= maxLength)
+    { return newArray }
+    else {
+        return newArray.slice(0, maxLength); 
+    }
+   
+    }
 
-console.log(formatMessage("Curabitur ligula sapien", 16)); // "Curabitur ligula..."
-console.log(formatMessage("Curabitur ligula sapien", 23)); // "Curabitur ligula sapien"
-console.log(formatMessage("Vestibulum facilisis purus nec", 20)); // "Vestibulum facilisis..."
-console.log(formatMessage("Vestibulum facilisis purus nec", 30)); // "Vestibulum facilisis purus nec"
-console.log(formatMessage("Nunc sed turpis a felis in nunc fringilla", 15)); // "Nunc sed turpis..."
-console.log(formatMessage("Nunc sed turpis a felis in nunc fringilla", 41)); // "Nunc sed turpis a felis in nunc fringilla"
-
+     
+console.log(makeArray(["Mango", "Poly"], ["Ajax", "Chelsea"], 3)); 
+console.log(makeArray(["Mango", "Poly", "Houston"], ["Ajax", "Chelsea"], 4)); 
+console.log(makeArray(["Mango"], ["Ajax", "Chelsea", "Poly", "Houston"], 3)); 
+console.log(makeArray(["Earth", "Jupiter"], ["Neptune", "Uranus"], 2)); 
+console.log(makeArray(["Earth", "Jupiter"], ["Neptune", "Uranus"], 4)); 
+console.log(makeArray(["Earth", "Jupiter"], ["Neptune", "Uranus", "Venus"], 0)); 
